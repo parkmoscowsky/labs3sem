@@ -21,7 +21,7 @@ public:
     ~Integer() { std::cout<<"Ouch!\n"; }
 
     Integer& operator++() {
-        if(this->value==INT_MAX) throw IntegerOverflow();
+        if(this->value==std::numeric_limits<int>::max()) throw IntegerOverflow();
         else { ++(this->value); return *this; }
     }
 
