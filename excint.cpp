@@ -26,7 +26,7 @@ public:
     }
 
     Integer operator++(int) {
-        if(this->value==INT_MAX) throw IntegerOverflow();
+        if(this->value==std::numeric_limits<int>::max()) throw IntegerOverflow();
         else {
             Integer tmp = *this;
             ++(this->value);
@@ -35,12 +35,12 @@ public:
     }
 
     Integer& operator--() {
-        if(this->value==INT_MIN) throw IntegerOverflow();
+        if(this->value==std::numeric_limits<int>::min()) throw IntegerOverflow();
         else { --(this->value); return *this; }
     }
 
     Integer operator--(int) {
-        if(this->value==INT_MIN) throw IntegerOverflow();
+        if(this->value==std::numeric_limits<int>::min()) throw IntegerOverflow();
         else { Integer tmp = *this; --(this->value); return tmp; }
     }
 
@@ -49,7 +49,7 @@ public:
         long long sVl = src.value;
         long long Vl = sVl + thVl;
         std::cout<<thVl<<" "<<sVl<<" "<<Vl<<"\n";
-        if(Vl<INT_MIN||Vl>INT_MAX) throw IntegerOverflow();
+        if(Vl<std::numeric_limits<int>::min()||Vl>std::numeric_limits<int>::max()) throw IntegerOverflow();
         else { (this->value)+=(src.value); return *this; }
     }
 
@@ -58,7 +58,7 @@ public:
         long long sVl = src.value;
         long long Vl = sVl - thVl;
         std::cout<<thVl<<" "<<sVl<<" "<<Vl<<"\n";
-        if(Vl<INT_MIN||Vl>INT_MAX) throw IntegerOverflow();
+        if(Vl<std::numeric_limits<int>::min()||Vl>std::numeric_limits<int>::max()) throw IntegerOverflow();
         else { (this->value)-=(src.value); return *this; }
     }
 
@@ -67,7 +67,7 @@ public:
         long long sVl = src.value;
         long long Vl = sVl * thVl;
         std::cout<<thVl<<sVl<<Vl<<"\n";
-        if(Vl<INT_MIN||Vl>INT_MAX) throw IntegerOverflow();
+        if(Vl<std::numeric_limits<int>::min()||Vl>std::numeric_limits<int>::max()) throw IntegerOverflow();
         else { (this->value)*=(src.value); return *this; }
     }
 
